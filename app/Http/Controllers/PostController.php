@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Validator;
 use App\Post;
 use Session;
 use DB;
@@ -24,7 +25,12 @@ class PostController extends Controller
     {
       //  $posts=Post::paginate(10);
       $user=Auth::user();
-          $posts=DB::table('posts')->where('user_id','=',Auth::id())->get();
+      if($user->name=='admin')
+      {
+        $posts=Post::all();
+      }
+      else
+      $posts=DB::table('posts')->where('user_id','=',Auth::id())->get();
 
         return view('postovi.index')->withPosts($posts)->withUser($user);
     }
@@ -47,24 +53,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
+    /*    $this->validate($request, array(
           'title'=>'required|max:255',
           'slug'=>'required|min:5|alpha_dash|max:50|unique:posts,slug',
           'tijelo'=>'required'
 
-        ));
-        $post = new Post;
-        $post->title=$request->title;
-        $post->slug=$request->slug;
-        $post->post=$request->tijelo;
-      //    $sero = Auth::user();
-        $post->user_id=Auth::id();
-        $post->save();
+        ));*/
 
-        Session::flash('uspjeh',$post->id);
+        $validator=Validator::make($request->all(), [
+          'title'=>'required',
+          'slug'=>'required|min:5|alpha_dash|unique:posts',
+          'tijelo'=>'required'
+        ]);
 
 
-        return redirect()->route('posts.show', $post->id);
+
+        if ($validator->fails())
+{
+    Session::flash('kreiranje','Nevaljan unos');
+    return redirect()->to($this->getRedirectUrl())
+                    ->withInput($request->input())
+                  ;
+}
+else{
+
+  $post = new Post;
+  $post->title=$request->title;
+  $post->slug=$request->slug;
+  $post->post=$request->tijelo;
+//    $sero = Auth::user();
+  $post->user_id=Auth::id();
+  $post->save();
+
+  Session::flash('uspjeh',$post->id);
+        return redirect()->route('posts.show', $post->id);}
         //return view('welcome');
     }
 

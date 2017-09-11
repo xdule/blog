@@ -2,25 +2,27 @@
 <html lang="en">
   <head>
 
-    <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{!!Html::script('js/myjquery.js')!!}
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-  <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+
+
+
+
+    <title>Xdule Blog</title>
 
     <!-- Bootstrap -->
+<!--      <script href="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+-->
 
 
 
@@ -83,8 +85,8 @@
             <li><a href="{{url('/login')}}">Loguj se</a></li>
             <li><a href="{{url('/register')}}">Registritaj se</a></li>
             @endif
-            <li><a href="autor">O autoru</a></li>
-            <li><a href="about">About us</a></li>
+            <li><a href="{{route('autor')}}">O autoru</a></li>
+            <li><a href="{{route('about')}}">About us</a></li>
             <li role="separator" class="divider"></li>
             <li>{{Auth::check() ?'Loged in':'loged out'}}</li>
           </ul>
@@ -106,10 +108,10 @@
 
 <div class="jumbotron">
 
-<h1>Bujrum,na Xdule Blog!   @yield('title')</h1>
+<h1>Xdule Blog!   @yield('title')</h1>
 
-<p>...</p>
-<p><a class="btn btn-primary btn-lg" href="about" role="button">Learn more</a></p>
+<p>Dobro došli</p>
+<p><a class="btn btn-primary btn-lg" href="{{route('about')}}" role="button">Više o nama</a></p>
 </div>
 
 <div class="container">
@@ -128,9 +130,9 @@
   <body>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>-->
   </body>
 </html>

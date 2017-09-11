@@ -24,7 +24,6 @@ $post=Post::orderBy('created_at','desc')->paginate(5);
         $user = Auth::user();
       return view('about')->withUser($user);
 
-
     }
     public function getKreiranje()
     {
@@ -42,7 +41,7 @@ $post=Post::orderBy('created_at','desc')->paginate(5);
     }
     public function getAutor()
     {
-      
+
 
       return view('postovi.autor');
     }

@@ -37,8 +37,8 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
 @endsection
 @section('babo')
-<li ><a href="/blog/public">Home <span class="sr-only">(current)</span></a></li>
+<li ><a href="{{route('home')}}">Home <span class="sr-only">(current)</span></a></li>
 
-<li class='active'><a href="about">About</a></li>
+<li class='active'><a href="{{route('about')}}">About</a></li>
 @endsection
 @section('title','|  O nama')

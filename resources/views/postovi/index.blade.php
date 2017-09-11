@@ -63,8 +63,8 @@
 @endsection
 
 @section('babo')
-<li ><a href="/blog/public">Home <span class="sr-only">(current)</span></a></li>
+<li ><a href="{{route('home')}}">Home <span class="sr-only">(current)</span></a></li>
 
-<li ><a href="about">About</a></li>
+<li ><a href="{{route('about')}}">About</a></li>
 @endsection
 @section('title','|  Upravljanje postovima')

@@ -3,6 +3,14 @@
 
 @section('content')
 
+
+
+
+
+
+
+
+
 <h1 style='color:grey;opacity:0.5;'>Autor Xdule bloga : </h1>
 
 
@@ -12,8 +20,8 @@
 
 @endsection
 @section('babo')
-<li ><a href="/blog/public">Home <span class="sr-only">(current)</span></a></li>
+<li ><a href="{{route('home')}}">Home <span class="sr-only">(current)</span></a></li>
 
-<li class='active'><a href="about">About</a></li>
+<li class='active'><a href="{{route('about')}}">About</a></li>
 @endsection
 @section('title','|  Autor Xdule Bloga')

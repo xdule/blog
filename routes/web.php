@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'PageController@getWelecome')->name('home');
-Route::get('/about', 'PageController@getAbout');
-Route::get('/autor', 'PageController@getAutor');
+Route::get('/about', 'PageController@getAbout')->name('about');
+Route::get('/autor', 'PageController@getAutor')->name('autor');
 Route::get('/kreiraj', 'PageController@getKreiranje');
 Route::get('blog/{slug}',['as'=>'blog.single','uses'=>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+');
 Route::post('blog',['as'=>'blog.search','uses'=>'BlogController@getPretraga']);
